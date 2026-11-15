@@ -31,3 +31,12 @@ func load_data() -> void:
 	var data = JSON.parse_string(file.get_as_text())
 	if data is Dictionary:
 		high_score = int(data.get("high_score", 0))
+func play_sfx(stream: AudioStream, volume_db := 0.0) -> void:
+	if stream == null:
+		return
+	var p := AudioStreamPlayer.new()
+	p.stream = stream
+	p.volume_db = volume_db
+	add_child(p)
+	p.finished.connect(p.queue_free)
+	p.play()

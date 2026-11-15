@@ -7,6 +7,8 @@ signal died
 @export var max_health := 100
 @export var fire_rate := 0.15
 @export var bullet_scene: PackedScene
+@export var shoot_sound: AudioStream
+@export var hurt_sound: AudioStream
 
 var health: int
 
@@ -29,12 +31,14 @@ func _physics_process(_delta: float) -> void:
 
 func shoot() -> void:
 	shoot_timer.start()
+	Game.play_sfx(shoot_sound, -10.0)
 	var bullet := bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = muzzle.global_position
 	bullet.rotation = rotation
 
 func take_damage(amount: int) -> void:
+	Game.play_sfx(hurt_sound)
 	health = max(health - amount, 0)
 	health_changed.emit(health, max_health)
 	$Camera2D.shake(10.0)

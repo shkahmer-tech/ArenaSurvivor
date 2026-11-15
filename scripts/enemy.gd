@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var max_health := 30
 @export var contact_damage := 10
 @export var points := 10
+@export var explosion_scene: PackedScene
+@export var hit_sound: AudioStream
+@export var death_sound: AudioStream
 
 var health: int
 var player: Node2D
@@ -34,5 +37,15 @@ func take_damage(amount: int) -> void:
 	modulate = Color(3, 3, 3)
 	create_tween().tween_property(self, "modulate", Color.WHITE, 0.1)
 	if health <= 0:
-		Game.add_score(points)
-		queue_free()
+		die()
+	else:
+		Game.play_sfx(hit_sound, -8.0)
+
+func die() -> void:
+	Game.add_score(points)
+	Game.play_sfx(death_sound)
+	if explosion_scene:
+		var fx := explosion_scene.instantiate()
+		get_tree().current_scene.add_child(fx)
+		fx.global_position = global_position
+	queue_free()

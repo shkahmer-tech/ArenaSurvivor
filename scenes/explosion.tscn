@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cthfxw3q6law8"]
+
+[ext_resource type="Script" uid="uid://c7kdmoos6rumf" path="res://scripts/explosion.gd" id="1_17npe"]
+
+[node name="Explosion" type="CPUParticles2D" unique_id=114116683]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color = Color(0.93229705, 0.014459801, 0.10217618, 1)
+script = ExtResource("1_17npe")
