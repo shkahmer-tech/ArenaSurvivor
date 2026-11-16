@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dy25yishtq6uq"]
+
+[ext_resource type="Script" uid="uid://dydi8nj3j2vjx" path="res://scripts/enemy.gd" id="1_5qbmg"]
+[ext_resource type="PackedScene" uid="uid://cthfxw3q6law8" path="res://scenes/explosion.tscn" id="2_a6sfn"]
+[ext_resource type="AudioStream" uid="uid://db3dpo0xrlr8l" path="res://audio/hitHurt (1).wav" id="3_ouwii"]
+[ext_resource type="AudioStream" uid="uid://c8f2ai3o6ve4c" path="res://audio/random.wav" id="4_1ty2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5qli"]
+radius = 16.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1189764096]
+collision_layer = 2
+script = ExtResource("1_5qbmg")
+speed = 220.0
+max_health = 15
+points = 15
+explosion_scene = ExtResource("2_a6sfn")
+hit_sound = ExtResource("3_ouwii")
+death_sound = ExtResource("4_1ty2h")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=717114032]
+color = Color(0.9019608, 0.30588236, 0.003921569, 1)
+polygon = PackedVector2Array(-15, -15, 20, 0, -15, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=797803045]
+shape = SubResource("CircleShape2D_o5qli")

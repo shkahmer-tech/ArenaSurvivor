@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://6jpxjtxvnvnv"]
+
+[ext_resource type="Script" uid="uid://c54uw0n5fmbgt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=590646255]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=580559360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.15686275, 1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=461631271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1122996209]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1708826010]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "ARENA SURVIVOR"
+horizontal_alignment = 1
+
+[node name="BestLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=136619754]
+layout_mode = 2
+text = "Best: 0"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1151453376]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=957708091]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Quit"

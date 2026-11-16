@@ -46,6 +46,6 @@ func die() -> void:
 	Game.play_sfx(death_sound)
 	if explosion_scene:
 		var fx := explosion_scene.instantiate()
-		get_tree().current_scene.add_child(fx)
-		fx.global_position = global_position
+		fx.position = global_position
+		get_parent().add_child(fx)
 	queue_free()

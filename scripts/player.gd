@@ -24,6 +24,7 @@ func _physics_process(_delta: float) -> void:
 	var dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = dir * speed
 	move_and_slide()
+	position = position.clamp(Vector2(-1900, -1900), Vector2(1900, 1900))
 	look_at(get_global_mouse_position())
 
 	if Input.is_action_pressed("shoot") and shoot_timer.is_stopped():

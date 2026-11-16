@@ -4,12 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c6rinb1aelkx6" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://b54lgc754mhnx" path="res://icon.svg" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://bgtrl2ad6bsw4" path="res://scripts/main.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dy25yishtq6uq" path="res://scenes/runner.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://bbro0gbmbrsto" path="res://scenes/tank.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://byldrrb70cl2i" path="res://scenes/ui.tscn" id="5_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://c7gkmqemsop4s" path="res://audio/battleThemeA.mp3" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=570844063]
 script = ExtResource("3_sugp2")
-enemy_scene = ExtResource("1_0wfyh")
+enemy_scenes = Array[PackedScene]([ExtResource("1_0wfyh"), ExtResource("3_tipki"), ExtResource("4_85g3d")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=639169545]
 z_index = -1
